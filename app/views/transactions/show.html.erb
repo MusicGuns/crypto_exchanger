@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-9 mt-5">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="mb-3 text-center">Checkout</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <h5 class="card-title">You send:</h5>
+            <p><%= @transaction.send_usdt %></p>
+
+            <h5 class="card-title"><p>You get<p></h5>
+            <p><%= @transaction.get_btc %></p>
+
+            <h5 class="card-title"><p>Network fee<p></h5>
+            <p><%= @transaction.get_btc * 0.03 %></p>
+
+            <h5 class="card-title">Address</h5>
+            <small><%= @transaction.address %></small>
+          </div>
+
+          <div class="col-6">
+            <h5 class="card-title">Exchange fee</h5>
+            <p>0.000006</p>
+
+            <h5 class="card-title">Exchange rate</h5>
+            <p>1 ~ <%= @transaction.rate %></p>
+
+            <h5 class="card-title">Txid</h5>
+            <small><%= @transaction.txid %></small>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <%= link_to t('transaction.show.new_transaction'),
+                        new_transaction_path,
+                        class: 'btn btn-primary mt-2',
+                        data: { turbolinks: false } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

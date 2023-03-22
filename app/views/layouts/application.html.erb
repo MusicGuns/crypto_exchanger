@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CryptoExchanger</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body style="background-image: url(https://catherineasquithgallery.com/uploads/posts/2021-02/1614261196_35-p-fon-chernii-granzh-71.jpg); background-size: 120%;">
+    <div class="position-relative">
+      <div class="position-absolute top-0 end-0">
+        <%= link_to "Admin", transactions_path, class: 'w-100 btn btn-primary btn-lg'%>
+      </div>
+    </div>
+    <div class="container" >
+      <%= yield %>
+    </div>
+  </body>
+</html>

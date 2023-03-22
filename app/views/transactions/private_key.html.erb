@@ -1,0 +1,15 @@
+<div class="container bg-white rounded p-3 mt-5 w-50">
+  <h4 class="mb-3 text-center">Admin</h4>    
+  <%= form_with url: "/transactions", method: :get do |f| %>
+
+    <div class="form-group mb-2">
+      <%= f.label "Private key" %>
+      <%= f.text_field :private_key, class: 'form-control' %>
+    </div>
+
+    <%= f.submit 'Confirm', class: 'btn btn-primary' %>
+    <div class="position-relative">
+      <%= link_to 'Back', :back, class: "position-absolute bottom-0 end-0"%>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,82 @@
+<%= form_with(model: transaction, class: "form_transaction") do |form| %>
+
+  <div class="row g-3">
+    <%= form.label :send_usdt, "You send", class: "form-label",  style: "display: block" %>
+    <div class="col-sm-9 mt-0">
+      <%= form.number_field :send_usdt, class: "form-control", value: "1", id: 'send', max: 30, min: 1 %>
+      <% unless transaction.errors.messages[:send_usdt].empty? %>
+        <%= render "errors", errors: transaction.errors.messages[:send_usdt]%>
+      <% end %>
+    </div>
+
+
+    <div class="col-sm-3 position-relative mt-0">
+      <div class="position-absolute top-0">
+        <select class="form-select" id="state" required>
+          <option>USDT</option>
+        </select>
+      </div>
+    </div>
+
+
+    <%= form.label :get_btc, "You get", class: "form-label",  style: "display: block" %>
+    <div class="col-sm-9 mt-0">
+      <%= form.number_field :get_btc, class: "form-control", value: "0", id: 'get', disabled: true %>
+      <%= form.hidden_field :rate, class: "form-control", id: 'rate' %>
+      <% unless transaction.errors.messages[:get_btc].empty? %>
+        <%= render "errors", errors: transaction.errors.messages[:get_btc] %>
+      <% end %> 
+    </div>
+
+
+
+    <div class="col-sm-3 position-relative mt-0">
+      <div class="position-absolute top-0">
+        <select class="form-select" id="state" required>
+          <option>BTC</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <%= form.label :exchange_fee, "Exchange fee", class: "form-label",  style: "display: block" %>
+      <%= form.number_field :exchange_fee, value: "0.000006", class: "form-control", disabled: true %>
+    </div>
+
+    <div class="col-sm-6">
+      <%= form.label :network_fee, "Network fee", class: "form-label",  style: "display: block" %>
+      <%= form.number_field :network_fee, value: "0", class: "form-control", disabled: true, id: "fee" %>
+    </div>
+    
+    <hr class="my-2">
+
+    <div class="col-12">
+        <%= form.label :address, "Wallet address", class: "form-label", style: "display: block" %>
+        <%= form.text_field :address, class: "form-control" %>
+        <% unless transaction.errors.messages[:address].empty? %>
+          <%= render "errors", errors: transaction.errors.messages[:address]%>
+        <% end %>
+    </div>
+
+
+    <div class="col-12">
+        <%= form.label :email, "Email", class: "form-label", style: "display: block" %>
+        <%= form.text_field :email, class: "form-control", placeholder: "you@example.com" %>
+        <% unless transaction.errors.messages[:email].empty? %>
+          <%= render "errors", errors: transaction.errors.messages[:email]%>
+        <% end %>
+    </div>
+
+
+    <hr class="my-2">
+
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input checkbox" id="same-address" , onchange="document.getElementById('btn').disabled = !this.checked;">
+      <label class="form-check-label">I accept the agreement with the terms KYC/AML</label>
+    </div>
+
+    <hr class="my-2">
+
+    <%= form.submit "Confirm Transaction", id: "btn", class: "w-100 btn btn-primary btn-lg", disabled: true %>
+  <div>
+<% end %>
