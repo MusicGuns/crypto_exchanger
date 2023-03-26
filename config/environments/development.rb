@@ -33,8 +33,6 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  Bitcoin.network = :testnet3
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

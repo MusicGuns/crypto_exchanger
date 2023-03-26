@@ -73,9 +73,6 @@ GEM
       eventmachine
       ffi
       scrypt
-    blockcypher-ruby (0.2.7)
-      bitcoin-ruby (~> 0.0.5)
-      ffi
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     bootstrap (5.2.3)
@@ -142,6 +139,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
+    pg (1.4.6)
     popper_js (2.11.6)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -195,7 +193,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.1-x86_64-linux)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -222,7 +219,6 @@ PLATFORMS
 
 DEPENDENCIES
   bitcoin-ruby
-  blockcypher-ruby
   bootsnap
   bootstrap (~> 5.2.2)
   debug
@@ -230,10 +226,10 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails
+  pg
   puma (~> 5.0)
   rails (~> 7.0.4)
   sprockets-rails
-  sqlite3 (~> 1.4)
   stimulus-rails
   turbo-rails
   tzinfo-data
