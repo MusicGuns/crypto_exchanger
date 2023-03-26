@@ -1,24 +1,40 @@
-# README
+# Развертывание c Docker
+---
+1. Setup .env:
+>__.env__
+>```
+>PRIVATE_KEY = ...
+>
+>```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+2.
+```
+docker-compose up
+```
 
-Things you may want to cover:
+# Развертывание без Docker
+---
 
-* Ruby version
+1. Setup .env:
+>__.env__
+>```
+>PRIVATE_KEY = ...
+>
+>```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+2. Bundle
+```
+bundle install
+```
+3. Create database.
+```
+bundle exec rails db:create
+```
+4. Run database migrations.
+```
+bundle exec rails db:migrate
+```
+5. Start rails server.
+```
+bundle exec rails s
+```
