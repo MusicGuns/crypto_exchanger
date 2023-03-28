@@ -17,17 +17,6 @@ ac:
 assets_percompile:
 	docker-compose run --rm app bundle exec rake assets:precompile
 
-generate_stimulus=generate_stimulus gs
-gs:
-	make generate_stimulus $(filter-out $(generate_stimulus), $(MAKECMDGOALS))
-generate_stimulus:
-	docker-compose run --rm app bundle exec rails generate stimulus $(filter-out $(generate_stimulus), $(MAKECMDGOALS))
-
-su:
-	make stimulus_update
-stimulus_update:
-	docker-compose run --rm app bundle exec rails stimulus:manifest:update
-
 b:
 	make bash
 bash:
@@ -48,17 +37,9 @@ s:
 start:
 	docker-compose up -d
 
-build_production:
-	docker build -t bitpad:latest .
-
-push_production:
-	docker tag bitpad:latest 0emfy/bitpad:latest
-	docker push 0emfy/bitpad:latest
-
 deploy:
-	git pull
-	docker build -t bitpad .
-	docker stack deploy -c docker-compose.prod.yml bitpad_prod
+	docker build -t crypto-exchanger .
+	docker stack deploy -c docker-compose.prod.yml crypto-exchanger_prod
 
 start_production:
 	bundle exec rails assets:precompile

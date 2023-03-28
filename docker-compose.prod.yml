@@ -35,8 +35,6 @@ services:
 
   nginx:
     image: nginx
-    ports:
-      - "3000:80"
     volumes:
       - ./.deploy/nginx/conf.d/:/etc/nginx/conf.d/
       - ./public:/usr/share/nginx/html
@@ -47,6 +45,13 @@ services:
       mode: global
       restart_policy:
         condition: on-failure
+    networks:
+      - my_network
+      - default
 
 volumes:
   postrgess:
+
+networks:
+  my_network:
+    external: true
