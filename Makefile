@@ -39,6 +39,7 @@ start:
 
 deploy:
 	docker build -t crypto-exchanger .
+	sleep 5
 	docker stack rm crypto-exchanger_prod
 	docker stack deploy -c docker-compose.prod.yml crypto-exchanger_prod
 
