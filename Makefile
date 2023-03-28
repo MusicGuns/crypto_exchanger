@@ -38,6 +38,7 @@ start:
 	docker-compose up -d
 
 deploy:
+	git pull
 	docker build -t crypto-exchanger .
 	docker stack rm crypto-exchanger_prod
 	sleep 5
