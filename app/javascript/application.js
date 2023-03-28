@@ -7,7 +7,11 @@ document.getElementById("send").oninput = () => { reset_rate() };
 
 setTimeout(() => { reset_rate() }, 30000);
 
-document.addEventListener('DOMContentLoaded', () => { 
+document.addEventListener('turbo:render', () => { 
+  reset_rate()
+});
+
+document.addEventListener('turbo:load', () => { 
   reset_rate()
 });
 

@@ -13,7 +13,11 @@
   <body style="background-image: url(https://catherineasquithgallery.com/uploads/posts/2021-02/1614261196_35-p-fon-chernii-granzh-71.jpg); background-size: 120%;">
     <div class="position-relative">
       <div class="position-absolute top-0 end-0">
-        <%= link_to "Admin", transactions_path, class: 'w-100 btn btn-primary btn-lg'%>
+        <% if current_page?(transactions_path) %>
+          <%= link_to "New Transaction", new_transaction_path, class: 'w-100 btn btn-primary btn-lg', data: { turbo: false }%>
+        <% else %>
+          <%= link_to "Admin", transactions_path, class: 'w-100 btn btn-primary btn-lg', data: { turbo: false }%>
+        <% end %>
       </div>
     </div>
     <div class="container" >
